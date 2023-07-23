@@ -1,14 +1,11 @@
 import { NestFactory } from '@nestjs/core';
 import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
 import { AppModule } from './app.module';
-const cors = require("cors");
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
 
-  app.use(cors({
-    origin: "http://localhost:5173/",
-  }));
+  app.enableCors();
 
   const config = new DocumentBuilder()
     .setTitle('Cats example')
