@@ -24,8 +24,8 @@ export class ProjectService {
       throw new NotFoundException('Un projet avec le même nom existe déjà');
     }
 
-    const createdProject = new this.projectModel(projectDto);
+    const newProject = new this.projectModel(projectDto);
 
-    return createdProject.save();
+    return newProject.save();
   }
 }
