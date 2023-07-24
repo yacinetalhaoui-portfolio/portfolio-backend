@@ -1,7 +1,8 @@
-import { Injectable } from '@nestjs/common';
+import {Injectable, NotFoundException} from '@nestjs/common';
 import { Project } from './schemas/project.schema';
 import { Model } from 'mongoose';
 import { InjectModel } from '@nestjs/mongoose';
+import { ProjectDto } from "./dto/project.dto";
 
 @Injectable()
 export class ProjectService {
@@ -12,6 +13,19 @@ export class ProjectService {
 
   async findAll(): Promise<Project[]> {
     const projects = await this.projectModel.find().exec();
+
     return projects;
+  }
+
+  async create(projectDto: ProjectDto): Promise<Project> {
+    const projectExistingCheck = this.projectModel.findOne( { name: projectDto.name, github_link: projectDto.github_link} ).exec();
+
+    if (projectExistingCheck) {
+      throw new NotFoundException('Un projet avec le même nom existe déjà');
+    }
+
+    const createdProject = new this.projectModel(projectDto);
+
+    return createdProject.save();
   }
 }
