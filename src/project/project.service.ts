@@ -2,7 +2,7 @@ import {Injectable, NotFoundException} from '@nestjs/common';
 import { Project } from './schemas/project.schema';
 import { Model } from 'mongoose';
 import { InjectModel } from '@nestjs/mongoose';
-import { ProjectDto } from "./dto/project.dto";
+import { ProjectDto } from "./dtos/project.dto";
 
 @Injectable()
 export class ProjectService {

@@ -2,7 +2,7 @@ import {Body, Controller, Get, Post} from '@nestjs/common';
 import { ExperienceService } from './experience.service';
 import { Experience } from './schemas/experience.schema';
 import {ApiTags} from "@nestjs/swagger";
-import {ExperienceDto} from "./dto/experience.dto";
+import {ExperienceDto} from "./dtos/experience.dto";
 
 @Controller('experience')
 @ApiTags("ProfessionalExperience")
