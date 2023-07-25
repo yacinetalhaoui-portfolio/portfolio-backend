@@ -9,7 +9,7 @@ import { EducationModule } from './education/education.module';
 @Module({
   imports: [
     MongooseModule.forRoot(
-      'mongodb+srv://ycn:5t2kFLtCT6F8Stey@myinformations.yexqxsp.mongodb.net/mydb',
+      process.env.DB_URI,
     ),
     ProjectModule,
     ExperienceModule,

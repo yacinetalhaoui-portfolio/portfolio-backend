@@ -13,4 +13,6 @@ export class ExperienceDto {
     responsabilities: string;
     @ApiProperty()
     image_url: string;
+    @ApiProperty()
+    secretCode: string;
 }
