@@ -23,4 +23,6 @@ export class ProjectDto {
     github_org_link?: string;
     @ApiProperty()
     tools: string[];
+    @ApiProperty()
+    secretCode: string;
 }

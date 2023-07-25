@@ -9,4 +9,6 @@ export class EducationDto {
     school: string;
     @ApiProperty()
     year: string;
+    @ApiProperty()
+    secretCode: string;
 }

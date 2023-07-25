@@ -1,8 +1,9 @@
-import {Body, Controller, Get, Post} from '@nestjs/common';
+import {Body, Controller, Get, Post, UseGuards} from '@nestjs/common';
 import { ProjectService } from './project.service';
 import { Project } from './schemas/project.schema';
 import { ProjectDto } from "./dtos/project.dto";
-import {ApiTags} from "@nestjs/swagger";
+import {ApiExcludeEndpoint, ApiTags} from "@nestjs/swagger";
+import {SecretCodeGuard} from "../guards/secret.guard";
 
 @Controller('project')
 @ApiTags('Project')
@@ -15,6 +16,8 @@ export class ProjectController {
   }
 
   @Post()
+  @ApiExcludeEndpoint()
+  @UseGuards(SecretCodeGuard)
   createProject(@Body() projectDto: ProjectDto): Promise<Project> {
     return this.projectService.create(projectDto);
   }

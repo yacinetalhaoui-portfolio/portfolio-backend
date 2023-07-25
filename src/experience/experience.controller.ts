@@ -1,7 +1,7 @@
 import {Body, Controller, Get, Post, UseGuards} from '@nestjs/common';
 import { ExperienceService } from './experience.service';
 import { Experience } from './schemas/experience.schema';
-import {ApiTags} from "@nestjs/swagger";
+import {ApiTags, ApiExcludeEndpoint} from "@nestjs/swagger";
 import {ExperienceDto} from "./dtos/experience.dto";
 import {SecretCodeGuard} from "../guards/secret.guard";
 
@@ -17,6 +17,7 @@ export class ExperienceController {
 
 
   @Post()
+  @ApiExcludeEndpoint()
   @UseGuards(SecretCodeGuard)
   addProfessionalExperience(@Body() experienceDto: ExperienceDto) {
     return this.experienceService.createExperience(experienceDto);
