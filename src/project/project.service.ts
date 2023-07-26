@@ -22,9 +22,7 @@ export class ProjectService {
     const projectExistingCheck = await this.projectModel.findOne( { name: projectDto.name, github_link: projectDto.github_link} ).exec()
         .then(res => result = res);
 
-    console.log(result);
-
-    if (projectExistingCheck) {
+    if (result) {
       throw new NotFoundException('Un projet avec le même nom existe déjà');
     }
 
