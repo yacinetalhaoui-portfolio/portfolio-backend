@@ -18,7 +18,7 @@ export class ProjectService {
   }
 
   async create(projectDto: ProjectDto): Promise<Project> {
-    const projectExistingCheck = this.projectModel.findOne( { name: projectDto.name, github_link: projectDto.github_link} ).exec();
+    const projectExistingCheck = await this.projectModel.findOne( { name: projectDto.name, github_link: projectDto.github_link} ).exec();
 
     if (projectExistingCheck) {
       throw new NotFoundException('Un projet avec le même nom existe déjà');
