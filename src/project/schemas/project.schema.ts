@@ -17,7 +17,7 @@ export class Project {
   @Prop({ required: true })
   tools: string[];
   @Prop({ required: true })
-  link: string;
+  image_url: string;
   @Prop({ required: true })
   github_link: string;
   @Prop()
