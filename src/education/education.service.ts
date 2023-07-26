@@ -12,7 +12,7 @@ export class EducationService {
   ) {}
 
   async findAll(): Promise<Education[]> {
-    const educations = await this.educationModel.find().exec();
+    const educations = await this.educationModel.find().sort({'begin_date': 'desc'}).exec();
     return educations;
   }
 
