@@ -9,13 +9,19 @@ export class Experience {
   company: string;
 
   @Prop({ required: true })
-  date: string;
+  begin_date: Date;
+
+  @Prop({ required: true })
+  end_date: Date;
 
   @Prop({ required: true })
   city: string;
 
   @Prop({ required: true })
-  responsabilities: string;
+  responsabilities: string[];
+
+  @Prop({ required: true} )
+  image_url: string;
 }
 
 export const ExperienceSchema = SchemaFactory.createForClass(Experience);
