@@ -12,7 +12,7 @@ export class ExperienceService {
   ) {}
 
   async findAll(): Promise<Experience[]> {
-    const experiences = await this.experienceModel.find({'begin_date': 'desc'}).exec();
+    const experiences = await this.experienceModel.find().sort({'begin_date': 'desc'}).exec();
     return experiences;
   }
 
