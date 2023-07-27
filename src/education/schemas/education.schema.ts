@@ -9,10 +9,10 @@ export class Education {
   degree: string;
 
   @Prop({ required: true })
-  begin_date: Date;
+  begin_date: string;
 
   @Prop({ required: true })
-  end_date: Date;
+  end_date: string;
 
   @Prop({ required: true })
   image_url: string;

@@ -9,10 +9,10 @@ export class Experience {
   company: string;
 
   @Prop({ required: true })
-  begin_date: Date;
+  begin_date: string;
 
   @Prop({ required: true })
-  end_date: Date;
+  end_date: string;
 
   @Prop({ required: true })
   city: string;
