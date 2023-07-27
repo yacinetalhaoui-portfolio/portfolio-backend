@@ -17,7 +17,8 @@ export class ExperienceService {
   }
 
   async createExperience(experienceDto: ExperienceDto): Promise<Experience> {
-    const experienceExistingCheck = await this.experienceModel.findOne( { title: experienceDto.title, company: experienceDto.company, date: experienceDto.date } );
+    const experienceExistingCheck = await this.experienceModel.findOne( { title: experienceDto.title, company: experienceDto.company, date: experienceDto.date } )
+        .then((experience) => !!experience);
 
     if (experienceExistingCheck) {
       throw new NotFoundException("Cette expérience existe déjà")
